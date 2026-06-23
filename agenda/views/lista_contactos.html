@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body{
+            background-color: #f8f9fa;
+        }
+
+        h1{
+            margin-bottom: 25px;
+        }
+
+        .table-info{
+            background-color: #cfe8ef;
+        }
+
+        table{
+            width: 100%;
+        }
+
+        td, th{
+            padding: 15px ;
+            vertical-align: middle;
+        }
+
+        a{
+            text-decoration: none;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container mt-4">
+
+        <h1>Contactos</h1>
+
+       
+        <div class="d-flex mb-3">
+            <input
+                type="text"
+                class="form-control me-2"
+                placeholder="Buscar..."
+            >
+
+            <a href="/insertar" class="btn btn-primary">
+                Insertar
+            </a>
+        </div>
+
+       
+        <table class="table table-striped table-hover">
+
+            <thead class="table-info">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre(s)</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>1</td>
+                    <td>Karen</td>
+                    <td>
+                        <a href="/ver">Ver</a>
+                        <a href="/editar">Editar</a>
+                        <a href="/borrar">Borrar</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td></td>
+                    <td>
+                        <a href="/ver">Ver</a>
+                        <a href="/editar">Editar</a>
+                        <a href="/borrar">Borrar</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>3</td>
+                    <td></td>
+                    <td>
+                        <a href="/ver">Ver</a>
+                        <a href="/editar">Editar</a>
+                        <a href="/borrar">Borrar</a>
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
