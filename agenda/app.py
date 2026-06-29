@@ -1,11 +1,11 @@
 import web  
 urls = (
-    '/', 'Index',
-    '/contactos', 'Contactos',
-    '/ver', 'Ver',
-    '/editar','Editar',
-    '/borrar','Borrar',
-    '/insertar','Insertar'
+    '/', 'controllers.index.Index',
+    '/contactos', 'controllers.lista_contactos.Contactos',
+    '/ver', 'controllers.ver.Ver',
+    '/editar','controllers.editar.Editar',
+    '/borrar','controllers.borrar.Borrar',
+    '/insertar','controllers.insertarInsertar'
 )
 
 app = web.application(urls, globals())
