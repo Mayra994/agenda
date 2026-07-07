@@ -40,4 +40,4 @@ class Ver:
         contacto =  self.buscarContacto(id_contacto)
         print(contacto)
 
-        return render.ver(contacto)
+        return render.ver_contacto(contacto)
