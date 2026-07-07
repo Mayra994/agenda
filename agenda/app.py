@@ -1,10 +1,10 @@
 import web  
 urls = (
     '/', 'controllers.index.Index',
-    '/contactos', 'controllers.lista_contactos.Contactos',
-    '/ver/(.*)', 'controllers.ver.Ver',
-    '/editar','controllers.editar.Editar',
-    '/borrar','controllers.borrar.Borrar',
+    '/lista_contactos','controllers.lista_contactos.ListaContactos',
+    '/ver_contacto/(.*)','controllers.ver_contacto.VerContacto',
+    '/editar_contacto/(.*)','controllers.editar_contacto.EditarContacto',
+    '/borrar_contacto/(.*)','controllers.borrar_contacto.BorrarContacto',
     '/insertar','controllers.insertar.Insertar'
 )
 

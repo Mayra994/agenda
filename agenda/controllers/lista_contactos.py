@@ -3,7 +3,7 @@ import sqlite3
 
 render = web.template.render('views', base='layout')
 
-class Contactos:
+class ListaContactos:
 
     def obtenerContactos(self):
         try:

@@ -3,9 +3,9 @@ import sqlite3
 
 render = web.template.render('views', base='layout')
 
-class Ver:
-
-    def buscarContacto(self, id_contacto:int):
+class EditarContacto:
+    
+    def editarContacto(self, id_contacto:int):
         try:
             # Conecta a la base de datos
             conn = sqlite3.connect('sql/agenda.db')
@@ -37,7 +37,7 @@ class Ver:
 
     def GET(self,id_contacto):
         print(f"ID_CONTACTO: {id_contacto}")
-        contacto =  self.buscarContacto(id_contacto)
+        contacto =  self.editarContacto(id_contacto)
         print(contacto)
 
-        return render.ver_contacto(contacto)
+        return render.editar_contacto(contacto)
