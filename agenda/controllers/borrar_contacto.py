@@ -1,40 +1,50 @@
 import web
 import sqlite3
 
-render = web.template.render('views/', base='layout')
+render = web.template.render('views', base='layout')
 
 class BorrarContacto:
 
-    def borrarContacto(self, id_contacto):
+    def eliminarContactos(self):
         try:
+            # Conecta a la base de datos
             conn = sqlite3.connect('sql/agenda.db')
             cursor = conn.cursor()
-            query = "SELECT * FROM contactos WHERE id_contacto = ?"
-            cursor.execute(query, (id_contacto,))
-            row = cursor.fetchone()
-            contacto = {
-                'id_contacto': row[0],
-                'nombre': row[1]
-            }
-            conn.close()
-            return contacto
-        except Exception as error:
-            print(f"Error: {error}")
-            return {}
+            # Consulta los registros de la tabla contactos
+            query = "SELECT * FROM contactos;"
+            cursor.execute(query)
+            # Crea un array vacio para almacenar los registros
+            contactos = []
+            # Almacena cada registro en un diccionario
+            for row in cursor.fetchall():
+                contacto = {
+                    'id_contacto': row[0],
+                    'nombre': row[1],
+                    'primer_apellido': row[2],
+                    'segundo_apellido': row[3],
+                    'email': row[4],
+                    'telefono': row[5]
+                }
+                # Agrega el diccionario creado al array
+                contactos.append(contacto)
 
-    def GET(self, id_contacto):
-        contacto = self.borrarContacto(id_contacto)
+            # Cierra la conexión a la base de datos
+            conn.close()
+
+            return contactos
+        except sqlite3.Error as error:
+            print(f"ERROR 100: {error.args}")
+            return []
+        except Exception as error:
+            print(f"ERROR 101: {error.args}")
+            return []
+        finally:
+            conn.close()
+
+
+    def GET(self,id_contacto):
+        
+        contacto =  self.eliminarContactos(id_contacto)
+        print(contacto)
+
         return render.borrar_contacto(contacto)
-
-    def POST(self, id_contacto):
-        try:
-            conn = sqlite3.connect('sql/agenda.db')
-            cursor = conn.cursor()
-            query = "DELETE FROM contactos WHERE id_contacto = ?"
-            cursor.execute(query, (int(id_contacto),))
-            conn.commit()
-            conn.close()
-            raise web.seeother('/lista_contactos')
-        except Exception as error:
-            print(f"Error: {error}")
-            return "No se pudo eliminar el contacto."
